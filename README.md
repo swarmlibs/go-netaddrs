@@ -7,3 +7,12 @@ Inspired by [go-discover](https://github.com/hashicorp/go-discover), `go-netaddr
     * on failure - exits with a non-zero code and optionally prints an error message of up to 1024 bytes to stderr.
 
 https://github.com/hashicorp/go-netaddrs
+
+## Usage
+
+```Dockerfile
+FROM swarmlibs/go-netaddrs:main AS go-netaddrs
+
+FROM your-base-image
+COPY --from=go-netaddrs /netaddrs /usr/bin/netaddrs
+```
